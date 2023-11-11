@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package gommerce.iam.v1beta;
+
+import "google/protobuf/wrappers.proto";
+
+option go_package = "github.com/choral-io/gommerce-protobuf-go/iam/v1beta;iam_v1beta";
+
+service TokensService {
+  rpc CreateToken(CreateTokenRequest) returns (CreateTokenResponse) {}
+  rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse) {}
+}
+
+message CreateTokenRequest {
+  repeated string scope = 1;
+  string realm = 2;
+  string provider = 3;
+  google.protobuf.StringValue username = 4;
+  google.protobuf.StringValue password = 5;
+  google.protobuf.StringValue id_token = 6;
+}
+
+message CreateTokenResponse {
+  string token_type = 1;
+  string access_token = 2;
+  string refresh_token = 3;
+  int32 expires_in = 4;
+}
+
+message RefreshTokenRequest {
+  repeated string scope = 1;
+  string realm = 2;
+  string refresh_token = 3;
+}
+
+message RefreshTokenResponse {
+  string token_type = 1;
+  string access_token = 2;
+  string refresh_token = 3;
+  int32 expires_in = 4;
+}

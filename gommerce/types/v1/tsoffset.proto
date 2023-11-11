@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package gommerce.types.v1;
+
+// buf:lint:ignore PACKAGE_SAME_GO_PACKAGE
+option go_package = "github.com/choral-io/gommerce-protobuf-go/types/v1/tsoffset;tsoffset_v1";
+
+// TimestampOffset is a timestamp with an offset in seconds and nanoseconds.
+message TimestampOffset {
+  // Seconds is the number of seconds since the Unix epoch.
+  int64 seconds = 1;
+  // Nanos is the number of nanoseconds offset within the second.
+  int32 nanos = 2;
+  // Offset is the offset in seconds from UTC.
+  int32 offset = 3;
+}

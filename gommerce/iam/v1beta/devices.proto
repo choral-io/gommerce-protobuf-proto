@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package gommerce.iam.v1beta;
+
+import "google/protobuf/wrappers.proto";
+
+option go_package = "github.com/choral-io/gommerce-protobuf-go/iam/v1beta;iam_v1beta";
+
+service DevicesService {
+  rpc PatchDevice(PatchDeviceRequest) returns (PatchDeviceResponse) {}
+}
+
+message PatchDeviceRequest {
+  string trace_code = 1;
+  google.protobuf.StringValue push_token = 2;
+  map<string, string> metadata = 3;
+}
+
+message PatchDeviceResponse {}

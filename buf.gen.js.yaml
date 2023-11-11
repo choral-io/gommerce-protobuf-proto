@@ -1,0 +1,14 @@
+version: v1
+plugins:
+  - plugin: buf.build/bufbuild/es:v1.4.2
+    out: .generated/js
+    opt:
+      - target=js+dts
+      - import_extension=.js
+      - keep_empty_files=false
+  - plugin: buf.build/connectrpc/es:v1.1.3
+    out: .generated/js
+    opt:
+      - target=js+dts
+      - import_extension=.js
+      - keep_empty_files=false

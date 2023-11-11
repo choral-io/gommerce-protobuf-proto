@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package gommerce.types.v1;
+
+// buf:lint:ignore PACKAGE_SAME_GO_PACKAGE
+option go_package = "github.com/choral-io/gommerce-protobuf-go/types/v1/gender;gender_v1";
+
+enum Gender {
+  GENDER_UNSPECIFIED = 0;
+  GENDER_MALE = 1;
+  GENDER_FEMALE = 2;
+  reserved 3 to 98;
+  GENDER_OTHER = 99;
+}

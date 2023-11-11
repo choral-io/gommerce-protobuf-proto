@@ -1,0 +1,19 @@
+version: v1
+plugins:
+  - plugin: buf.build/protocolbuffers/go:v1.31.0
+    out: ../gommerce-protobuf-go
+    opt:
+      - module=github.com/choral-io/gommerce-protobuf-go
+  - plugin: buf.build/bufbuild/validate-go:v1.0.2
+    out: ../gommerce-protobuf-go
+    opt:
+      - module=github.com/choral-io/gommerce-protobuf-go
+  - plugin: buf.build/grpc/go:v1.3.0
+    out: ../gommerce-protobuf-go
+    opt:
+      - module=github.com/choral-io/gommerce-protobuf-go
+  - plugin: buf.build/grpc-ecosystem/gateway:v2.18.1
+    out: ../gommerce-protobuf-go
+    opt:
+      - module=github.com/choral-io/gommerce-protobuf-go
+      - generate_unbound_methods=true

@@ -1,0 +1,6 @@
+{
+  "editor.formatOnSave": true,
+  "editor.foldingStrategy": "indentation",
+  "files.insertFinalNewline": true,
+  "files.autoSave": "onWindowChange"
+}

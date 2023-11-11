@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package gommerce.iam.v1beta;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option go_package = "github.com/choral-io/gommerce-protobuf-go/iam/v1beta;iam_v1beta";
+
+service RealmsService {
+  rpc CreateRealm(CreateRealmRequest) returns (CreateRealmResponse) {}
+  rpc GetRealm(GetRealmRequest) returns (GetRealmResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc ListRealms(ListRealmsRequest) returns (ListRealmsResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc UpdateRealm(UpdateRealmRequest) returns (UpdateRealmResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc DeleteRealm(DeleteRealmRequest) returns (DeleteRealmResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+}
+
+message Realm {
+  string id = 1;
+  bool disabled = 2;
+  bool immutable = 3;
+  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp updated_at = 5;
+  google.protobuf.Timestamp deleted_at = 6;
+  string name = 7;
+  string title = 8;
+  google.protobuf.StringValue description = 9;
+}
+
+message CreateRealmRequest {
+  reserved 1;
+  bool disabled = 2;
+  string name = 3;
+  string title = 4;
+  google.protobuf.StringValue description = 5;
+}
+
+message CreateRealmResponse {
+  Realm value = 1;
+}
+
+message GetRealmRequest {
+  string id = 1;
+}
+
+message GetRealmResponse {
+  Realm value = 1;
+}
+
+message ListRealmsRequest {
+  int32 page = 1;
+  int32 size = 2;
+  string sort = 3;
+}
+
+message ListRealmsResponse {
+  repeated Realm items = 1;
+  int32 page = 2;
+  int32 size = 3;
+  int64 total = 4;
+}
+
+message UpdateRealmRequest {
+  string id = 1;
+  bool disabled = 2;
+  string name = 3;
+  string title = 4;
+  google.protobuf.StringValue description = 5;
+}
+
+message UpdateRealmResponse {}
+
+message DeleteRealmRequest {
+  string id = 1;
+}
+
+message DeleteRealmResponse {}

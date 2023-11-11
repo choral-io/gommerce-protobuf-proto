@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package gommerce.iam.v1beta;
+
+option go_package = "github.com/choral-io/gommerce-protobuf-go/iam/v1beta;iam_v1beta";
+
+message UserCreatedEvent {
+  string realm = 1;
+  string user_id = 2;
+}
+
+message UserUpdatedEvent {
+  string realm = 1;
+  string user_id = 2;
+}
+
+message UserActivatedEvent {
+  string realm = 1;
+  string user_id = 2;
+}
+
+message UserLoggedInEvent {
+  string realm = 1;
+  string user_id = 2;
+  string provider = 3;
+  string identifier = 4;
+}

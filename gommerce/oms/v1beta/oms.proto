@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+package gommerce.oms.v1beta;
+
+option go_package = "github.com/choral-io/gommerce-protobuf-go/oms/v1beta;oms_v1beta";

@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+package gommerce.crm.v1beta;
+
+option go_package = "github.com/choral-io/gommerce-protobuf-go/crm/v1beta;crm_v1beta";

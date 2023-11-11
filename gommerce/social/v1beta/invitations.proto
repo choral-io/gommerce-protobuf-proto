@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package gommerce.social.v1beta;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option go_package = "github.com/choral-io/gommerce-protobuf-go/social/v1beta;social_v1beta";
+
+service InvitationService {
+  rpc CreateInvitation(CreateInvitationRequest) returns (CreateInvitationResponse) {}
+  rpc ListInvitations(ListInvitationsRequest) returns (ListInvitationsResponse) {}
+}
+
+message Invitation {
+  string inviter_id = 1;
+  string invitee_id = 2;
+  google.protobuf.StringValue channel_id = 3;
+  google.protobuf.Timestamp created_at = 4;
+}
+
+message CreateInvitationRequest {
+  string inviter_id = 1;
+  string invitee_id = 2;
+  google.protobuf.StringValue channel_id = 3;
+}
+
+message CreateInvitationResponse {}
+
+message ListInvitationsRequest {
+  int32 page = 1;
+  int32 size = 2;
+  string sort = 3;
+}
+
+message ListInvitationsResponse {
+  repeated Invitation items = 1;
+  int32 page = 2;
+  int32 size = 3;
+  int64 total = 4;
+}

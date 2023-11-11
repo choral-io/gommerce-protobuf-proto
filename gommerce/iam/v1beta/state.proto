@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package gommerce.iam.v1beta;
+
+option go_package = "github.com/choral-io/gommerce-protobuf-go/iam/v1beta;iam_v1beta";
+
+service UserStateService {
+  rpc GetState(GetStateRequest) returns (GetStateResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc SetState(SetStateRequest) returns (SetStateResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+}
+
+message GetStateRequest {
+  string pattern = 1;
+}
+
+message GetStateResponse {
+  map<string, string> state = 1;
+}
+
+message SetStateRequest {
+  map<string, string> state = 1;
+}
+
+message SetStateResponse {}

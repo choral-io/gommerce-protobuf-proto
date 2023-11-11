@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+package gommerce.wallet.v1beta;
+
+option go_package = "github.com/choral-io/gommerce-protobuf-go/wallet/v1beta;wallet_v1beta";

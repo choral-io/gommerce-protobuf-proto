@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package gommerce.social.v1beta;
+
+import "gommerce/types/v1/date.proto";
+import "gommerce/types/v1/gender.proto";
+import "google/protobuf/wrappers.proto";
+
+option go_package = "github.com/choral-io/gommerce-protobuf-go/social/v1beta;social_v1beta";
+
+message Profile {
+  string user_id = 1;
+  map<string, string> attributes = 2;
+  gommerce.types.v1.Date birthdate = 3;
+  google.protobuf.StringValue avatar_url = 4;
+  google.protobuf.StringValue display_name = 5;
+  gommerce.types.v1.Gender gender = 6;
+  google.protobuf.StringValue introduction = 7;
+}

@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+package gommerce.search.v1beta;
+
+option go_package = "github.com/choral-io/gommerce-protobuf-go/search/v1beta;search_v1beta";

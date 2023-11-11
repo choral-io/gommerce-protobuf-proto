@@ -1,0 +1,132 @@
+syntax = "proto3";
+
+package gommerce.utils.v1;
+
+import "gommerce/types/v1/tsoffset.proto";
+import "validate/validate.proto";
+
+option go_package = "github.com/choral-io/gommerce-protobuf-go/utils/v1;utils_v1";
+
+service SequenceService {
+  rpc NextValue(NextValueRequest) returns (NextValueResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+}
+
+message NextValueRequest {
+  string key = 1 [(validate.rules).string.min_len = 1];
+  int64 min_value = 2 [(validate.rules).int64 = {gte: 0}];
+  int64 max_value = 3 [(validate.rules).int64 = {gte: 0}];
+}
+
+message NextValueResponse {
+  string key = 1;
+  int64 value = 2;
+}
+
+service SnowflakeService {
+  rpc NextHex(NextHexRequest) returns (NextHexResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc NextInt64(NextInt64Request) returns (NextInt64Response) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+}
+
+message NextHexRequest {}
+
+message NextHexResponse {
+  string value = 1;
+}
+
+message NextInt64Request {}
+
+message NextInt64Response {
+  int64 value = 1;
+}
+
+service PasswordService {
+  rpc GeneratePassword(GeneratePasswordRequest) returns (GeneratePasswordResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc HashPassword(HashPasswordRequest) returns (HashPasswordResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc ValidatePassword(ValidatePasswordRequest) returns (ValidatePasswordResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+}
+
+message GeneratePasswordRequest {
+  int32 length = 1 [(validate.rules).int32 = {gt: 0}];
+  string symbols = 2 [(validate.rules).string.min_len = 1];
+}
+
+message GeneratePasswordResponse {
+  string value = 1;
+}
+
+message HashPasswordRequest {
+  string value = 1 [(validate.rules).string.min_len = 1];
+}
+
+message HashPasswordResponse {
+  string value = 1;
+}
+
+message ValidatePasswordRequest {
+  string hashed_password = 1 [(validate.rules).string.min_len = 1];
+  string provided_password = 2 [(validate.rules).string.min_len = 1];
+}
+
+message ValidatePasswordResponse {
+  bool valid = 1;
+}
+
+service DateTimeService {
+  rpc GetDBNow(GetDBNowRequest) returns (GetDBNowResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc GetRedisNow(GetRedisNowRequest) returns (GetRedisNowResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc GetUTCNow(GetUTCNowRequest) returns (GetUTCNowResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc GetLocalNow(GetLocalNowRequest) returns (GetLocalNowResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc WatchLocalNow(WatchLocalNowRequest) returns (stream WatchLocalNowResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+}
+
+message GetDBNowRequest {}
+
+message GetDBNowResponse {
+  gommerce.types.v1.TimestampOffset value = 1;
+}
+
+message GetRedisNowRequest {}
+
+message GetRedisNowResponse {
+  gommerce.types.v1.TimestampOffset value = 1;
+}
+
+message GetUTCNowRequest {}
+
+message GetUTCNowResponse {
+  gommerce.types.v1.TimestampOffset value = 1;
+}
+
+message GetLocalNowRequest {}
+
+message GetLocalNowResponse {
+  gommerce.types.v1.TimestampOffset value = 1;
+}
+
+message WatchLocalNowRequest {}
+
+message WatchLocalNowResponse {
+  gommerce.types.v1.TimestampOffset value = 1;
+}

@@ -1,0 +1,30 @@
+name: Deploy NPM Package
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@choral-io'
+      - env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npx -y -p @bufbuild/buf buf generate --template buf.gen.js.yaml --path gommerce --path google
+          cp -rf .generated/js/gommerce/** .build/gommerce-protobuf-node
+          cp -rf .generated/js/google/** .build/gommerce-protobuf-node
+          cd .build/gommerce-protobuf-node
+          echo $(cat VERSION).$GITHUB_RUN_NUMBER > VERSION
+          npm version $(cat VERSION)
+          npm publish --access public

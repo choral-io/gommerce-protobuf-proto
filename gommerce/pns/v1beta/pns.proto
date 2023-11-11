@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+package gommerce.pns.v1beta;
+
+option go_package = "github.com/choral-io/gommerce-protobuf-go/pns/v1beta;pns_v1beta";

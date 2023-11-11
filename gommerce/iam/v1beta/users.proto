@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package gommerce.iam.v1beta;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option go_package = "github.com/choral-io/gommerce-protobuf-go/iam/v1beta;iam_v1beta";
+
+service UsersService {
+  rpc ListUsers(ListUsersRequest) returns (ListUsersResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc GetIdentity(GetIdentityRequest) returns (GetIdentityResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+}
+
+message User {
+  string id = 1;
+  string realm = 2;
+  bool disabled = 3;
+  bool approved = 4;
+  bool verified = 5;
+  bool immutable = 6;
+  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Timestamp updated_at = 8;
+  google.protobuf.Timestamp deleted_at = 9;
+  google.protobuf.Timestamp expires_at = 10;
+  google.protobuf.Timestamp first_login_time = 11;
+  google.protobuf.Timestamp last_active_time = 12;
+  int64 flags = 13;
+  map<string, string> attributes = 14;
+  google.protobuf.StringValue display_name = 15;
+  reserved 16 to 26; // reserved for additional user attributes
+  google.protobuf.StringValue description = 27;
+  google.protobuf.StringValue masked_phone_number = 28;
+  google.protobuf.StringValue masked_email_address = 29;
+  reserved 30 to 40; // reserved for additional user properties
+  User creator = 41;
+}
+
+message ListUsersRequest {
+  int32 page = 1;
+  int32 size = 2;
+  string sort = 3;
+}
+
+message ListUsersResponse {
+  repeated User items = 1;
+  int32 page = 2;
+  int32 size = 3;
+  int64 total = 4;
+}
+
+message GetIdentityRequest {}
+
+message GetIdentityResponse {
+  User user = 1;
+  repeated string scope = 2;
+}
