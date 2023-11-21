@@ -2,12 +2,17 @@ syntax = "proto3";
 
 package gommerce.iam.v1beta;
 
+import "gommerce/types/v1/gender.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
+import "validate/validate.proto";
 
 option go_package = "github.com/choral-io/gommerce-protobuf-go/iam/v1beta;iam_v1beta";
 
 service UsersService {
+  rpc Register(RegisterRequest) returns (RegisterResponse) {
+    option idempotency_level = IDEMPOTENT;
+  }
   rpc ListUsers(ListUsersRequest) returns (ListUsersResponse) {
     option idempotency_level = NO_SIDE_EFFECTS;
   }
@@ -32,25 +37,50 @@ message User {
   int64 flags = 13;
   map<string, string> attributes = 14;
   google.protobuf.StringValue display_name = 15;
-  reserved 16 to 26; // reserved for additional user attributes
+  gommerce.types.v1.Gender gender = 16;
+  reserved 17 to 26; // reserved for additional user attributes
   google.protobuf.StringValue description = 27;
   google.protobuf.StringValue masked_phone_number = 28;
   google.protobuf.StringValue masked_email_address = 29;
-  reserved 30 to 40; // reserved for additional user properties
-  User creator = 41;
+  reserved 30 to 39; // reserved for additional user properties
+  User creator = 40;
+}
+
+message RegisterRequest {
+  string realm = 1 [(validate.rules).string = {
+    min_len: 5,
+    max_len: 56
+  }];
+  string username = 2 [(validate.rules).string = {
+    min_len: 5,
+    max_len: 56
+  }];
+  string password = 3 [(validate.rules).string = {
+    min_len: 5,
+    max_len: 56
+  }];
+  google.protobuf.StringValue display_name = 4 [(validate.rules).string = {
+    min_len: 5,
+    max_len: 120
+  }];
+  gommerce.types.v1.Gender gender = 5;
+}
+
+message RegisterResponse {
+  User user = 1;
 }
 
 message ListUsersRequest {
-  int32 page = 1;
-  int32 size = 2;
+  int32 page = 1 [(validate.rules).int32 = {gte: 0}];
+  int32 size = 2 [(validate.rules).int32 = {gte: 1}];
   string sort = 3;
 }
 
 message ListUsersResponse {
-  repeated User items = 1;
-  int32 page = 2;
-  int32 size = 3;
-  int64 total = 4;
+  int32 page = 1;
+  int32 size = 2;
+  int64 total = 3;
+  repeated User items = 4;
 }
 
 message GetIdentityRequest {}
