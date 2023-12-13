@@ -7,7 +7,7 @@ plugins:
       - target=js+dts
       - import_extension=.js
       - keep_empty_files=false
-  - plugin: buf.build/connectrpc/es:v1.1.4
+  - plugin: buf.build/connectrpc/es:v1.2.0
     out: .generated/es
     opt:
       - target=js+dts
