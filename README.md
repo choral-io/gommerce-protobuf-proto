@@ -11,6 +11,6 @@ buf format --path gommerce --diff --write
 
 # generate
 buf mod update
-buf generate --path gommerce --template buf.gen.es.yaml
-buf generate --path gommerce --template buf.gen.go.yaml
+buf generate --template buf.gen.es.yaml --path gommerce --path google
+buf generate --template buf.gen.go.yaml --path gommerce
 ```
