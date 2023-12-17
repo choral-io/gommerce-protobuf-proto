@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+package gommerce.state.v1beta;
+
+option go_package = "github.com/choral-io/gommerce-protobuf-go/state/v1beta;state_v1beta";

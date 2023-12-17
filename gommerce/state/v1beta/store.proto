@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package gommerce.state.v1beta;
+
+import "validate/validate.proto";
+
+option go_package = "github.com/choral-io/gommerce-protobuf-go/state/v1beta;state_v1beta";
+
+service StateStoreService {
+  rpc GetState(GetStateRequest) returns (GetStateResponse) {}
+  rpc SetState(SetStateRequest) returns (SetStateResponse) {}
+  rpc DelState(DelStateRequest) returns (DelStateResponse) {}
+}
+
+message GetStateRequest {
+  string key = 1 [(validate.rules).string.min_len = 1];
+  map<string, string> metadata = 2;
+}
+
+message GetStateResponse {
+  bytes data = 1;
+  reserved 2;
+  map<string, string> metadata = 3;
+  string content_type = 4;
+}
+
+message SetStateRequest {
+  string key = 1 [(validate.rules).string.min_len = 1];
+  bytes data = 2;
+  reserved 3;
+  map<string, string> metadata = 4;
+  reserved 5;
+  string content_type = 6;
+}
+
+message SetStateResponse {}
+
+message DelStateRequest {
+  string key = 1 [(validate.rules).string.min_len = 1];
+  reserved 2;
+  map<string, string> metadata = 3;
+  reserved 4;
+}
+
+message DelStateResponse {}
