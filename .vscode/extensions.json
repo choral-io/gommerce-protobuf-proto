@@ -1,7 +1,6 @@
 {
   "recommendations": [
     "editorconfig.editorconfig",
-    "bufbuild.vscode-buf",
-    "peterj.proto"
+    "bufbuild.vscode-buf"
   ]
 }
