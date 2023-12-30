@@ -10,10 +10,9 @@ option go_package = "github.com/choral-io/gommerce-protobuf-go/social/v1beta;soc
 
 message Profile {
   string user_id = 1;
-  map<string, string> attributes = 2;
-  gommerce.types.v1.Date birthdate = 3;
-  google.protobuf.StringValue avatar_url = 4;
-  google.protobuf.StringValue display_name = 5;
-  gommerce.types.v1.Gender gender = 6;
-  google.protobuf.StringValue introduction = 7;
+  google.protobuf.StringValue display_name = 2;
+  google.protobuf.StringValue avatar_url = 3;
+  gommerce.types.v1.Gender gender = 4;
+  gommerce.types.v1.Date birthdate = 5;
+  google.protobuf.StringValue introduction = 6;
 }

@@ -36,14 +36,12 @@ message User {
   google.protobuf.Timestamp last_active_time = 12;
   int64 flags = 13;
   map<string, string> attributes = 14;
-  google.protobuf.StringValue display_name = 15;
-  gommerce.types.v1.Gender gender = 16;
-  reserved 17 to 26; // reserved for additional user attributes
-  google.protobuf.StringValue description = 27;
-  google.protobuf.StringValue masked_phone_number = 28;
-  google.protobuf.StringValue masked_email_address = 29;
-  reserved 30 to 39; // reserved for additional user properties
-  User creator = 40;
+  reserved 15 to 24; // reserved for additional user attributes
+  google.protobuf.StringValue description = 25;
+  google.protobuf.StringValue masked_phone_number = 26;
+  google.protobuf.StringValue masked_email_address = 27;
+  reserved 28 to 37; // reserved for additional user properties
+  User creator = 38;
 }
 
 message RegisterRequest {
@@ -60,10 +58,14 @@ message RegisterRequest {
     max_len: 56
   }];
   google.protobuf.StringValue display_name = 4 [(validate.rules).string = {
-    min_len: 5,
+    min_len: 2,
     max_len: 120
   }];
-  gommerce.types.v1.Gender gender = 5;
+  google.protobuf.StringValue avatar_url = 5 [(validate.rules).string = {
+    min_len: 0,
+    max_len: 2048
+  }];
+  gommerce.types.v1.Gender gender = 6;
 }
 
 message RegisterResponse {
