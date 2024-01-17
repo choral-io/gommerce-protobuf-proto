@@ -5,7 +5,7 @@ plugins:
     out: ../gommerce-protobuf-go
     opt:
       - module=github.com/choral-io/gommerce-protobuf-go
-  - plugin: buf.build/bufbuild/validate-go:v1.0.2
+  - plugin: buf.build/bufbuild/validate-go:v1.0.3
     out: ../gommerce-protobuf-go
     opt:
       - module=github.com/choral-io/gommerce-protobuf-go
