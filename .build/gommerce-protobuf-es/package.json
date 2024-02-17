@@ -1,9 +1,9 @@
 {
-  "name": "@choral-io/gommerce-protobuf-node",
+  "name": "@choral-io/gommerce-protobuf-es",
   "version": "0.0.0",
   "license": "MIT",
   "type": "module",
   "dependencies": {
-    "@bufbuild/protobuf": "1.7.0"
+    "@bufbuild/protobuf": "1.7.2"
   }
 }

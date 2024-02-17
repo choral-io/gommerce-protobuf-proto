@@ -15,16 +15,16 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@choral-io'
+          node-version: "20"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@choral-io"
       - env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npx -y -p @bufbuild/buf buf generate --template buf.gen.es.yaml --path gommerce --path google
-          cp -rf .generated/es/gommerce/** .build/gommerce-protobuf-node
-          cp -rf .generated/es/google/** .build/gommerce-protobuf-node
-          cd .build/gommerce-protobuf-node
+          cp -rf .generated/es/gommerce/** .build/gommerce-protobuf-es
+          cp -rf .generated/es/google/** .build/gommerce-protobuf-es
+          cd .build/gommerce-protobuf-es
           echo $(cat VERSION).$GITHUB_RUN_NUMBER > VERSION
           npm version $(cat VERSION)
           npm publish --access public
