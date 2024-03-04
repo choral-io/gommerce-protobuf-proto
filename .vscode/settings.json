@@ -1,6 +1,10 @@
 {
   "editor.formatOnSave": true,
   "editor.foldingStrategy": "indentation",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "files.insertFinalNewline": true,
-  "files.autoSave": "onWindowChange"
+  "files.autoSave": "onWindowChange",
+  "[proto]": {
+    "editor.defaultFormatter": "bufbuild.vscode-buf"
+  }
 }

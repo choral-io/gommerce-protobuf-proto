@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "editorconfig.editorconfig",
-    "bufbuild.vscode-buf"
+    "bufbuild.vscode-buf",
+    "redhat.vscode-yaml"
   ]
 }
