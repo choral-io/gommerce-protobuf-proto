@@ -4,12 +4,19 @@ package gommerce.state.v1beta;
 
 import "validate/validate.proto";
 
+option csharp_namespace = "Gommerce.Proto.State.V1Beta";
 option go_package = "github.com/choral-io/gommerce-protobuf-go/state/v1beta;state_v1beta";
 
 service StateStoreService {
-  rpc GetState(GetStateRequest) returns (GetStateResponse) {}
-  rpc SetState(SetStateRequest) returns (SetStateResponse) {}
-  rpc DelState(DelStateRequest) returns (DelStateResponse) {}
+  rpc GetState(GetStateRequest) returns (GetStateResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc SetState(SetStateRequest) returns (SetStateResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc DelState(DelStateRequest) returns (DelStateResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
 }
 
 message GetStateRequest {

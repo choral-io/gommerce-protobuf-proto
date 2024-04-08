@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package gommerce.types.v1;
 
+// buf:lint:ignore PACKAGE_SAME_CSHARP_NAMESPACE
+option csharp_namespace = "Gommerce.Proto.Types.V1Beta";
 // buf:lint:ignore PACKAGE_SAME_GO_PACKAGE
 option go_package = "github.com/choral-io/gommerce-protobuf-go/types/v1/date;date_v1";
 

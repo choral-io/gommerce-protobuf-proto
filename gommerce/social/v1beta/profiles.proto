@@ -6,6 +6,7 @@ import "gommerce/types/v1/date.proto";
 import "gommerce/types/v1/gender.proto";
 import "google/protobuf/wrappers.proto";
 
+option csharp_namespace = "Gommerce.Proto.Social.V1Beta";
 option go_package = "github.com/choral-io/gommerce-protobuf-go/social/v1beta;social_v1beta";
 
 message Profile {
