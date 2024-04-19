@@ -80,10 +80,10 @@ message ListUsersRequest {
 }
 
 message ListUsersResponse {
-  int32 page = 1;
-  int32 size = 2;
-  int64 total = 3;
-  repeated User items = 4;
+  repeated User items = 1;
+  int32 page = 2;
+  int32 size = 3;
+  int64 total = 4;
 }
 
 message GetIdentityRequest {}

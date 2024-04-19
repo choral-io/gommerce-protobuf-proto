@@ -59,8 +59,8 @@ service PasswordService {
 }
 
 message GeneratePasswordRequest {
-  int32 length = 1 [(validate.rules).int32 = {gt: 0}];
-  string symbols = 2 [(validate.rules).string.min_len = 1];
+  int32 length = 1;
+  string symbols = 2;
 }
 
 message GeneratePasswordResponse {
