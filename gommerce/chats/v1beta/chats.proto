@@ -11,6 +11,7 @@ option go_package = "github.com/choral-io/gommerce-protobuf-go/chats/v1beta;chat
 
 service ChatsService {
   rpc ListSessions(ListSessionsRequest) returns (ListSessionsResponse) {}
+  rpc DescribeSession(DescribeSessionRequest) returns (DescribeSessionResponse) {}
   rpc ReadSession(ReadSessionRequest) returns (ReadSessionResponse) {}
   rpc SendRecord(SendRecordRequest) returns (SendRecordResponse) {}
   rpc WatchRecords(WatchRecordsRequest) returns (stream WatchRecordsResponse) {}
@@ -21,11 +22,10 @@ message Member {
   string session_id = 2;
   google.protobuf.Timestamp created_at = 3;
   google.protobuf.Timestamp updated_at = 4;
-  google.protobuf.StringValue read_cursor = 5;
-  int64 permission = 6;
-  gommerce.types.v1.Gender gender = 7;
-  string display_name = 8;
-  google.protobuf.StringValue avatar_url = 9;
+  int64 permission = 5;
+  gommerce.types.v1.Gender gender = 6;
+  string display_name = 7;
+  google.protobuf.StringValue avatar_url = 8;
 }
 
 message Record {
@@ -49,9 +49,9 @@ message Session {
   google.protobuf.StringValue icon_url = 6;
   string title = 7;
   google.protobuf.StringValue introduction = 8;
-  google.protobuf.StringValue read_cursor = 9;
-  repeated Member members = 10;
-  repeated Record records = 11;
+  repeated Member members = 9;
+  Record last_record = 10;
+  google.protobuf.StringValue read_cursor = 11;
 }
 
 message ListSessionsRequest {
@@ -65,6 +65,14 @@ message ListSessionsResponse {
   int32 page = 2;
   int32 size = 3;
   int64 total = 4;
+}
+
+message DescribeSessionRequest {
+  string session_id = 1;
+}
+
+message DescribeSessionResponse {
+  Session item = 1;
 }
 
 message ReadSessionRequest {
