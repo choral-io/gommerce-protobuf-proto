@@ -10,6 +10,7 @@ option go_package = "github.com/choral-io/gommerce-protobuf-go/iam/v1beta;iam_v1
 
 service TokensService {
   rpc CreateToken(CreateTokenRequest) returns (CreateTokenResponse) {}
+  rpc RevokeToken(RevokeTokenRequest) returns (RevokeTokenResponse) {}
   rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse) {}
 }
 
@@ -20,6 +21,7 @@ message CreateTokenRequest {
   google.protobuf.StringValue username = 4;
   google.protobuf.StringValue password = 5;
   google.protobuf.StringValue id_token = 6;
+  google.protobuf.StringValue signature = 7;
 }
 
 message CreateTokenResponse {
@@ -28,6 +30,12 @@ message CreateTokenResponse {
   string refresh_token = 3;
   int32 expires_in = 4;
 }
+
+message RevokeTokenRequest {
+  string access_token = 1;
+}
+
+message RevokeTokenResponse {}
 
 message RefreshTokenRequest {
   repeated string scope = 1;
