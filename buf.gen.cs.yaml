@@ -1,11 +1,11 @@
 # yaml-language-server: $schema=https://json.schemastore.org/buf.gen.json
-version: v1
+version: v2
 plugins:
-  - plugin: buf.build/protocolbuffers/csharp:v27.1
+  - remote: buf.build/protocolbuffers/csharp:v27.1
     out: .generated/cs
     opt:
       - base_namespace=Gommerce.Proto
-  - plugin: buf.build/grpc/csharp:v1.64.2
+  - remote: buf.build/grpc/csharp:v1.64.2
     out: .generated/cs
     opt:
       - base_namespace=Gommerce.Proto
