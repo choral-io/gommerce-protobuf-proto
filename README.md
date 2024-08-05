@@ -13,4 +13,8 @@ buf format --path gommerce --diff --write
 buf dep update
 buf generate --template buf.gen.es.yaml --path gommerce --path google
 buf generate --template buf.gen.go.yaml --path gommerce
+
+# publish
+buf build
+buf push --label $(git rev-parse --abbrev-ref HEAD)
 ```
