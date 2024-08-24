@@ -1,4 +1,5 @@
 syntax = "proto3";
+
 package gommerce.chats.v1beta;
 
 import "gommerce/types/v1/gender.proto";
