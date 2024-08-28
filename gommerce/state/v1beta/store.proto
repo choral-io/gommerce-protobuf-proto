@@ -6,6 +6,7 @@ import "validate/validate.proto";
 
 option csharp_namespace = "Gommerce.Proto.State.V1Beta";
 option go_package = "github.com/choral-io/gommerce-protobuf-go/state/v1beta;state_v1beta";
+option java_package = "io.choral.gommerce.proto.state.v1beta";
 
 service StateStoreService {
   rpc GetState(GetStateRequest) returns (GetStateResponse) {

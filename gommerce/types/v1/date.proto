@@ -6,6 +6,7 @@ package gommerce.types.v1;
 option csharp_namespace = "Gommerce.Proto.Types.V1Beta";
 // buf:lint:ignore PACKAGE_SAME_GO_PACKAGE
 option go_package = "github.com/choral-io/gommerce-protobuf-go/types/v1/date;date_v1";
+option java_package = "io.choral.gommerce.proto.types.v1";
 
 // Date represents a year, month, and day in the Gregorian calendar.
 // https://github.com/googleapis/googleapis/blob/master/google/type/date.proto

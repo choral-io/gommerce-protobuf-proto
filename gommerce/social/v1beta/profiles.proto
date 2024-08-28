@@ -8,6 +8,7 @@ import "google/protobuf/wrappers.proto";
 
 option csharp_namespace = "Gommerce.Proto.Social.V1Beta";
 option go_package = "github.com/choral-io/gommerce-protobuf-go/social/v1beta;social_v1beta";
+option java_package = "io.choral.gommerce.proto.social.v1beta";
 
 message Profile {
   string user_id = 1;

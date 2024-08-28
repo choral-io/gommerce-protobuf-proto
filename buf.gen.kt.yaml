@@ -1,0 +1,7 @@
+# yaml-language-server: $schema=https://json.schemastore.org/buf.gen.json
+version: v2
+plugins:
+  - remote: buf.build/protocolbuffers/kotlin:v27.4
+    out: .generated/kt
+  - remote: buf.build/grpc/kotlin:v1.4.1
+    out: .generated/kt

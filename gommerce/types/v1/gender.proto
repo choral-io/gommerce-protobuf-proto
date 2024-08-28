@@ -6,6 +6,7 @@ package gommerce.types.v1;
 option csharp_namespace = "Gommerce.Proto.Types.V1Beta";
 // buf:lint:ignore PACKAGE_SAME_GO_PACKAGE
 option go_package = "github.com/choral-io/gommerce-protobuf-go/types/v1/gender;gender_v1";
+option java_package = "io.choral.gommerce.proto.types.v1";
 
 enum Gender {
   GENDER_UNSPECIFIED = 0;

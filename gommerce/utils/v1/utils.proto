@@ -7,6 +7,7 @@ import "validate/validate.proto";
 
 option csharp_namespace = "Gommerce.Proto.Utils.V1Beta";
 option go_package = "github.com/choral-io/gommerce-protobuf-go/utils/v1;utils_v1";
+option java_package = "io.choral.gommerce.proto.utils.v1";
 
 service SequenceService {
   rpc NextValue(NextValueRequest) returns (NextValueResponse) {

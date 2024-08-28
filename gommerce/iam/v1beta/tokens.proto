@@ -7,6 +7,7 @@ import "validate/validate.proto";
 
 option csharp_namespace = "Gommerce.Proto.IAM.V1Beta";
 option go_package = "github.com/choral-io/gommerce-protobuf-go/iam/v1beta;iam_v1beta";
+option java_package = "io.choral.gommerce.proto.iam.v1beta";
 
 service TokensService {
   rpc CreateToken(CreateTokenRequest) returns (CreateTokenResponse) {}

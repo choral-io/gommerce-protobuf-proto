@@ -4,3 +4,4 @@ package gommerce.games.v1beta;
 
 option csharp_namespace = "Gommerce.Proto.Games.V1Beta";
 option go_package = "github.com/choral-io/gommerce-protobuf-go/games/v1beta;games_v1beta";
+option java_package = "io.choral.gommerce.proto.games.v1beta";

@@ -9,6 +9,7 @@ import "validate/validate.proto";
 
 option csharp_namespace = "Gommerce.Proto.Chats.V1Beta";
 option go_package = "github.com/choral-io/gommerce-protobuf-go/chats/v1beta;chats_v1beta";
+option java_package = "io.choral.gommerce.proto.chats.v1beta";
 
 service ChatsService {
   rpc ListSessions(ListSessionsRequest) returns (ListSessionsResponse) {}

@@ -6,6 +6,7 @@ package gommerce.types.v1;
 option csharp_namespace = "Gommerce.Proto.Types.V1Beta";
 // buf:lint:ignore PACKAGE_SAME_GO_PACKAGE
 option go_package = "github.com/choral-io/gommerce-protobuf-go/types/v1/tsoffset;tsoffset_v1";
+option java_package = "io.choral.gommerce.proto.types.v1";
 
 // TimestampOffset is a timestamp with an offset in seconds and nanoseconds.
 message TimestampOffset {
