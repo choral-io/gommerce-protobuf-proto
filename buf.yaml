@@ -4,7 +4,7 @@ deps:
   - buf.build/envoyproxy/protoc-gen-validate
 lint:
   use:
-    - DEFAULT
+    - STANDARD
   ignore:
     - "google"
   allow_comment_ignores: true
