@@ -32,9 +32,7 @@ message CreateTokenResponse {
   int32 expires_in = 4;
 }
 
-message RevokeTokenRequest {
-  string access_token = 1;
-}
+message RevokeTokenRequest {}
 
 message RevokeTokenResponse {}
 
