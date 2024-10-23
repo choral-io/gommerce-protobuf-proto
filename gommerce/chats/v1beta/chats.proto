@@ -58,7 +58,7 @@ message Session {
 }
 
 message ListSessionsRequest {
-  int32 page = 1 [(validate.rules).int32 = {gte: 0}];
+  int32 page = 1 [(validate.rules).int32 = {gte: 1}];
   int32 size = 2 [(validate.rules).int32 = {gte: 1}];
   string sort = 3;
 }
