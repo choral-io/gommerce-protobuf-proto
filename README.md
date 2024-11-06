@@ -3,6 +3,9 @@
 Proto files of project `gommerce`.
 
 ```sh
+# update
+buf dep update
+
 # lint
 buf lint --path gommerce
 
