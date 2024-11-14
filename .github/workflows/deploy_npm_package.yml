@@ -22,8 +22,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npx -y -p @bufbuild/buf buf generate --template buf.gen.es.yaml --path gommerce --path google
-          cp -rf .generated/es/gommerce/** .build/gommerce-protobuf-es
-          cp -rf .generated/es/google/** .build/gommerce-protobuf-es
+          cp -rf .generated/es/* .build/gommerce-protobuf-es
           cd .build/gommerce-protobuf-es
           echo $(cat VERSION).$GITHUB_RUN_NUMBER > VERSION
           npm version $(cat VERSION)
