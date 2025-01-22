@@ -13,7 +13,7 @@ plugins:
     out: ../gommerce-protobuf-go
     opt:
       - module=github.com/choral-io/gommerce-protobuf-go
-  - remote: buf.build/grpc-ecosystem/gateway:v2.25.1
+  - remote: buf.build/grpc-ecosystem/gateway:v2.26.0
     out: ../gommerce-protobuf-go
     opt:
       - module=github.com/choral-io/gommerce-protobuf-go
