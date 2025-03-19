@@ -4,6 +4,6 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
-    "@bufbuild/protobuf": "2.2.3"
+    "@bufbuild/protobuf": "2.2.4"
   }
 }
