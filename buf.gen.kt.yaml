@@ -5,9 +5,9 @@ plugins:
     out: .generated/java
   - remote: buf.build/bufbuild/validate-java:v1.2.1
     out: .generated/java
-  - remote: buf.build/grpc/java:v1.71.0
+  - remote: buf.build/grpc/java:v1.72.0
     out: .generated/java
   - remote: buf.build/protocolbuffers/kotlin:v30.2
     out: .generated/kotlin
-  - remote: buf.build/grpc/kotlin:v1.4.1
+  - remote: buf.build/grpc/kotlin:v1.4.3
     out: .generated/kotlin
