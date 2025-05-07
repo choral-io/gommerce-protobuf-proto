@@ -13,7 +13,6 @@ buf lint --path gommerce
 buf format --path gommerce --diff --write
 
 # generate
-buf dep update
 buf generate --template buf.gen.es.yaml --path gommerce --path google
 buf generate --template buf.gen.go.yaml --path gommerce
 
