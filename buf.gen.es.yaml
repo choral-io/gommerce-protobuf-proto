@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://json.schemastore.org/buf.gen.json
 version: v2
 plugins:
-  - remote: buf.build/bufbuild/es:v2.5.1
+  - remote: buf.build/bufbuild/es:v2.5.2
     out: .build/gommerce-protobuf-es
     opt:
       - json_types=true
