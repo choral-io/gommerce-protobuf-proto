@@ -3,7 +3,7 @@ syntax = "proto3";
 package gommerce.utils.v1;
 
 import "gommerce/types/v1/tsoffset.proto";
-import "validate/validate.proto";
+import "buf/validate/validate.proto";
 
 option csharp_namespace = "Gommerce.Proto.Utils.V1Beta";
 option go_package = "github.com/choral-io/gommerce-protobuf-go/utils/v1;utils_v1";
@@ -16,9 +16,9 @@ service SequenceService {
 }
 
 message NextValueRequest {
-  string key = 1 [(validate.rules).string.min_len = 1];
-  int64 min_value = 2 [(validate.rules).int64 = {gte: 0}];
-  int64 max_value = 3 [(validate.rules).int64 = {gte: 0}];
+  string key = 1 [(buf.validate.field).string.min_len = 1];
+  int64 min_value = 2 [(buf.validate.field).int64 = {gte: 0}];
+  int64 max_value = 3 [(buf.validate.field).int64 = {gte: 0}];
 }
 
 message NextValueResponse {
@@ -69,7 +69,7 @@ message GeneratePasswordResponse {
 }
 
 message HashPasswordRequest {
-  string value = 1 [(validate.rules).string.min_len = 1];
+  string value = 1 [(buf.validate.field).string.min_len = 1];
 }
 
 message HashPasswordResponse {
@@ -77,8 +77,8 @@ message HashPasswordResponse {
 }
 
 message ValidatePasswordRequest {
-  string hashed_password = 1 [(validate.rules).string.min_len = 1];
-  string provided_password = 2 [(validate.rules).string.min_len = 1];
+  string hashed_password = 1 [(buf.validate.field).string.min_len = 1];
+  string provided_password = 2 [(buf.validate.field).string.min_len = 1];
 }
 
 message ValidatePasswordResponse {

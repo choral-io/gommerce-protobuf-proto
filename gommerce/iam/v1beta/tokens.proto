@@ -3,7 +3,7 @@ syntax = "proto3";
 package gommerce.iam.v1beta;
 
 import "google/protobuf/wrappers.proto";
-import "validate/validate.proto";
+import "buf/validate/validate.proto";
 
 option csharp_namespace = "Gommerce.Proto.IAM.V1Beta";
 option go_package = "github.com/choral-io/gommerce-protobuf-go/iam/v1beta;iam_v1beta";
@@ -17,8 +17,8 @@ service TokensService {
 
 message CreateTokenRequest {
   repeated string scope = 1;
-  string realm = 2 [(validate.rules).string.min_len = 1];
-  string provider = 3 [(validate.rules).string.min_len = 1];
+  string realm = 2 [(buf.validate.field).string.min_len = 1];
+  string provider = 3 [(buf.validate.field).string.min_len = 1];
   google.protobuf.StringValue username = 4;
   google.protobuf.StringValue password = 5;
   google.protobuf.StringValue id_token = 6;

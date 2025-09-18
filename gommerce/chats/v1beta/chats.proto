@@ -5,7 +5,7 @@ package gommerce.chats.v1beta;
 import "gommerce/types/v1/gender.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
-import "validate/validate.proto";
+import "buf/validate/validate.proto";
 
 option csharp_namespace = "Gommerce.Proto.Chats.V1Beta";
 option go_package = "github.com/choral-io/gommerce-protobuf-go/chats/v1beta;chats_v1beta";
@@ -58,8 +58,8 @@ message Session {
 }
 
 message ListSessionsRequest {
-  int32 page = 1 [(validate.rules).int32 = {gte: 1}];
-  int32 size = 2 [(validate.rules).int32 = {gte: 1}];
+  int32 page = 1 [(buf.validate.field).int32 = {gte: 1}];
+  int32 size = 2 [(buf.validate.field).int32 = {gte: 1}];
   string sort = 3;
 }
 

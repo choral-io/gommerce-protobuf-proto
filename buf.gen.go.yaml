@@ -5,10 +5,6 @@ plugins:
     out: ../gommerce-protobuf-go
     opt:
       - module=github.com/choral-io/gommerce-protobuf-go
-  - remote: buf.build/bufbuild/validate-go:v1.2.1
-    out: ../gommerce-protobuf-go
-    opt:
-      - module=github.com/choral-io/gommerce-protobuf-go
   - remote: buf.build/grpc/go:v1.5.1
     out: ../gommerce-protobuf-go
     opt:
