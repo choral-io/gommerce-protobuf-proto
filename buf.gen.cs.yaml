@@ -5,7 +5,7 @@ plugins:
     out: .generated/cs
     opt:
       - base_namespace=Gommerce.Proto
-  - remote: buf.build/grpc/csharp:v1.74.1
+  - remote: buf.build/grpc/csharp:v1.75.1
     out: .generated/cs
     opt:
       - base_namespace=Gommerce.Proto
