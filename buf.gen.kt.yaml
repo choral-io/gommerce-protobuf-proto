@@ -1,13 +1,11 @@
 # yaml-language-server: $schema=https://json.schemastore.org/buf.gen.json
 version: v2
 plugins:
-  - remote: buf.build/protocolbuffers/java:v32.1
-    out: .generated/java
-  - remote: buf.build/bufbuild/validate-java:v1.2.1
+  - remote: buf.build/protocolbuffers/java:v33.0
     out: .generated/java
   - remote: buf.build/grpc/java:v1.76.0
     out: .generated/java
-  - remote: buf.build/protocolbuffers/kotlin:v32.1
+  - remote: buf.build/protocolbuffers/kotlin:v33.0
     out: .generated/kotlin
   - remote: buf.build/grpc/kotlin:v1.5.0
     out: .generated/kotlin
