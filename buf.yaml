@@ -1,13 +1,7 @@
-version: v1
+version: v2
 name: buf.build/choral-io/gommerce
 deps:
   - buf.build/bufbuild/protovalidate
 lint:
-  use:
-    - STANDARD
   ignore:
-    - "google"
-  allow_comment_ignores: true
-breaking:
-  use:
-    - FILE
+    - google
