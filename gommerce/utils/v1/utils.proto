@@ -2,8 +2,8 @@ syntax = "proto3";
 
 package gommerce.utils.v1;
 
-import "gommerce/types/v1/tsoffset.proto";
 import "buf/validate/validate.proto";
+import "gommerce/types/v1/tsoffset.proto";
 
 option csharp_namespace = "Gommerce.Proto.Utils.V1Beta";
 option go_package = "github.com/choral-io/gommerce-protobuf-go/utils/v1;utils_v1";

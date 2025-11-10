@@ -2,10 +2,10 @@ syntax = "proto3";
 
 package gommerce.chats.v1beta;
 
+import "buf/validate/validate.proto";
 import "gommerce/types/v1/gender.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
-import "buf/validate/validate.proto";
 
 option csharp_namespace = "Gommerce.Proto.Chats.V1Beta";
 option go_package = "github.com/choral-io/gommerce-protobuf-go/chats/v1beta;chats_v1beta";
