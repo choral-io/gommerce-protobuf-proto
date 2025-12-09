@@ -1,9 +1,9 @@
 # yaml-language-server: $schema=https://json.schemastore.org/buf.gen.json
 version: v2
 plugins:
-  - remote: buf.build/protocolbuffers/python:v33.1
+  - remote: buf.build/protocolbuffers/python:v33.2
     out: .generated/py
-  - remote: buf.build/protocolbuffers/pyi:v33.1
+  - remote: buf.build/protocolbuffers/pyi:v33.2
     out: .generated/py
   - remote: buf.build/grpc/python:v1.76.0
     out: .generated/py
