@@ -1,0 +1,5 @@
+{
+  "ensure_final_newline_on_save": true,
+  "autosave": "on_window_change",
+  "format_on_save": "on"
+}

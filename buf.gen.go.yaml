@@ -1,11 +1,11 @@
 # yaml-language-server: $schema=https://json.schemastore.org/buf.gen.json
 version: v2
 plugins:
-  - remote: buf.build/protocolbuffers/go:v1.36.10
+  - remote: buf.build/protocolbuffers/go:v1.36.11
     out: ../gommerce-protobuf-go
     opt:
       - module=github.com/choral-io/gommerce-protobuf-go
-  - remote: buf.build/grpc/go:v1.5.1
+  - remote: buf.build/grpc/go:v1.6.0
     out: ../gommerce-protobuf-go
     opt:
       - module=github.com/choral-io/gommerce-protobuf-go
