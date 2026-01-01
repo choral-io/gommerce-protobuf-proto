@@ -3,7 +3,7 @@ version: v2
 plugins:
   - remote: buf.build/protocolbuffers/java:v33.2
     out: .generated/java
-  - remote: buf.build/grpc/java:v1.77.0
+  - remote: buf.build/grpc/java:v1.78.0
     out: .generated/java
   - remote: buf.build/protocolbuffers/kotlin:v33.2
     out: .generated/kotlin
