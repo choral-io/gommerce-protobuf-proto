@@ -5,5 +5,5 @@ plugins:
     out: .generated/py
   - remote: buf.build/protocolbuffers/pyi:v35.1
     out: .generated/py
-  - remote: buf.build/grpc/python:v1.82.1
+  - remote: buf.build/grpc/python:v1.83.0
     out: .generated/py
